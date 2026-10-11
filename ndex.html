@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VideoAI Russian</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101018;color:white;font-family:Arial,sans-serif;padding:20px}
+header{font-size:25px;font-weight:bold;color:#9c7cff;margin-bottom:24px}
+main{max-width:600px;margin:auto}
+section{background:#1c1c29;border:1px solid #38384c;border-radius:18px;padding:18px;margin-bottom:18px}
+h2{margin-top:0}
+label{display:block;margin:14px 0 7px}
+textarea,input,select{width:100%;padding:13px;border-radius:10px;border:1px solid #48485d;background:#11111b;color:white;font-size:16px}
+textarea{min-height:100px;resize:vertical}
+button{width:100%;padding:15px;border:0;border-radius:12px;background:#8059f6;color:white;font-size:17px;font-weight:bold;margin-top:14px}
+.note{color:#b9b8c9;font-size:13px;line-height:1.5}
+</style>
+</head>
+<body>
+<main>
+<header>🎬 VideoAI Russian</header>
+<section>
+<h2>Создай своё ИИ-видео</h2>
+<label>Описание видео</label>
+<textarea id="prompt" placeholder="Например: кот бежит по волшебному лесу..."></textarea>
+<label>Фотография для анимации</label>
+<input id="photo" type="file" accept="image/*">
+<label>Длительность</label>
+<select id="duration">
+<option value="5">5 секунд</option>
+<option value="10">10 секунд</option>
+<option value="15">15 секунд</option>
+<option value="20">20 секунд</option>
+<option value="25">25 секунд</option>
+<option value="30">30 секунд</option>
+<option value="35">35 секунд</option>
+</select>
+<button onclick="generate()">Создать видео ✨</button>
+<p id="status" class="note">Готов к подключению настоящей видеонейросети.</p>
+</section>
+<section>
+<h2>📱 Мои видео</h2>
+<p class="note">Здесь будут появляться созданные ролики после подключения сервера.</p>
+</section>
+<script>
+function generate(){
+const p=document.getElementById('prompt').value.trim();
+const f=document.getElementById('photo').files[0];
+const d=document.getElementById('duration').value;
+const s=document.getElementById('status');
+if(!p){s.textContent='Сначала напиши описание видео.';return}
+if(!f){s.textContent='Сначала выбери фотографию.';return}
+s.textContent='Запрос подготовлен: '+d+' секунд. Для настоящей генерации нужно подключить защищённый сервер Magic Hour. Видео пока не создано.';
+}
+</script>
+</main>
+</body>
+</html>
